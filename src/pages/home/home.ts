@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
+import {AlertController, IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {Profile} from "../../interFaces/profile";
 
 
@@ -28,7 +28,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public modalCtrl: ModalController) {
+              public modalCtrl: ModalController,
+              public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -53,14 +54,14 @@ export class HomePage {
   model() {
     let modal = this.modalCtrl.create('ModalPage');
     modal.onDidDismiss(data => {
-      if (Object.keys(data).length === 0) {
-      } else {
-        this.profile.actionSwitch = data.actionSwitch;
-        this.profile.name = data.name;
-        this.profile.gender = data.gender;
-        this.profile.domestic = data.domestic;
-        this.profile.startDate = data.startDate;
-      }
+      /*  if (Object.keys(data).length === 0) {
+        } else {*/
+      this.profile.actionSwitch = data.actionSwitch;
+      this.profile.name = data.name;
+      this.profile.gender = data.gender;
+      this.profile.domestic = data.domestic;
+      this.profile.startDate = data.startDate;
+      /* }*/
       /* console.log('actionSwitch:', data.actionSwitch);
        console.log('name:', data.name);
        console.log('gender:', data.gender);
@@ -69,4 +70,38 @@ export class HomePage {
     });
     modal.present();
   }
+
+  //////
+  showPrompt() {
+    let prompt = this.alertCtrl.create({
+      title: 'Login',
+      message: "이름과E메일주소를 입력하세요",
+      inputs: [
+        {
+          name: 'name',
+          placeholder: '이름입력'
+        },
+        {
+          name: 'email',
+          placeholder: 'E-mail입력'
+        },
+      ],
+      buttons: [
+        {
+          text: '취소',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: '저장',
+          handler: data => {
+            console.log('Saved clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
 }
