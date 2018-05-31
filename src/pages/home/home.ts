@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {AlertController, IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {Profile} from "../../interFaces/profile";
-
+import {Account} from "../../interFaces/Account";
 
 /**
  * Generated class for the HomePage page.
@@ -17,6 +17,7 @@ import {Profile} from "../../interFaces/profile";
 })
 export class HomePage {
   public profile = {} as Profile;
+  public accountData = {} as Account;
   disabledSwitch = false;
   userName: any;
   items = [
@@ -96,7 +97,9 @@ export class HomePage {
         {
           text: '저장',
           handler: data => {
-            console.log('Saved clicked');
+            console.log(data);
+            this.accountData = {name: data.name, email: data.email};
+            this.navCtrl.push('NavPage', {account:this.accountData});
           }
         }
       ]

@@ -1,0 +1,38 @@
+<!--
+  Generated template for the ProductDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{product?.name||'등록화면'}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button full icon-right=""> Product 등록
+    <ion-icon name="create"></ion-icon>
+  </button>
+  <ion-item>
+    <ion-label>id:{{product.id}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>name:</ion-label>
+    <ion-input type="text" [(ngModel)]="product.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>cost:</ion-label>
+    <ion-input type="text" [(ngModel)]="product.cost"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>quantity:</ion-label>
+    <ion-input type="text" [(ngModel)]="product.quantity"></ion-input>
+  </ion-item>
+</ion-content>
