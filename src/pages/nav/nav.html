@@ -16,10 +16,11 @@
 <ion-content padding>
   <ion-item>
     <ion-label fixed>이름</ion-label>
-    <ion-input type="text" [value]="account.name"></ion-input>
+    <ion-input type="text" [(ngModel)]="account.name"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label fixed>Email</ion-label>
-    <ion-input type="text" [value]="account.email"></ion-input>
+    <ion-input type="text" [(ngModel)]="account.email"></ion-input>
   </ion-item>
+  <ion-item><button ion-button (click)="sendEmail(account)"></button></ion-item>
 </ion-content>

@@ -17,9 +17,7 @@
 
 
 <ion-content padding>
-  <button ion-button full icon-right=""> Product 등록
-    <ion-icon name="create"></ion-icon>
-  </button>
+
   <ion-item>
     <ion-label>id:{{product.id}}</ion-label>
   </ion-item>
@@ -35,4 +33,12 @@
     <ion-label>quantity:</ion-label>
     <ion-input type="text" [(ngModel)]="product.quantity"></ion-input>
   </ion-item>
+  <button ion-button full icon-right (click)="seveProduct(product)"> save
+    <ion-icon name="md-checkmark" item-end></ion-icon>
+  </button>
+  <button *ngIf="product.id" ion-button full color="danger" item-end icon-right
+          (click)="deleteProduct(product.id)"> Delete
+    <ion-icon name="trash"></ion-icon>
+  </button>
+
 </ion-content>

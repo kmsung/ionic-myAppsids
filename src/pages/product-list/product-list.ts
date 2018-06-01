@@ -32,4 +32,8 @@ export class ProductListPage {
     this.navCtrl.push('ProductDetailPage',{"myProduct":product});
   }
 
+  createProduct() {
+    this.navCtrl.push('ProductDetailPage', {"myProduct":{}});
+  }
+
 }
