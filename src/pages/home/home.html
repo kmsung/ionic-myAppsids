@@ -29,6 +29,7 @@
   <button ion-button full [disabled]="disabledSwitch" (click)="buttonClicked($event)" value="아이오닉">mybutton</button>
   <button ion-button full color="primary" (click)="model()">modal Page load</button>
   <button ion-button full color="secondary" (click)="showPrompt()">Prompt Alert </button>
+  <button ion-button full color="primary" (click)="sendSMS()">SMS 전송 </button>
   <ion-item>
     <ion-label>UserName :</ion-label>
     <ion-input type="text" [(ngModel)]="userName"></ion-input>
